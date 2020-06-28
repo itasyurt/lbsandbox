@@ -17,9 +17,11 @@ repositories {
 
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-web")
-	implementation("org.springframework.boot:spring-boot-starter-actuator")
-	implementation("org.springframework.cloud:spring-cloud-starter-bus-amqp:2.2.2.RELEASE")
-	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+	// Following dependencies added for this example
+	implementation("org.springframework.boot:spring-boot-starter-actuator") // Spring Cloud Bus runs on top of Actuator
+	implementation("org.springframework.cloud:spring-cloud-starter-bus-amqp:2.2.2.RELEASE") // Spring Cloud Bus with AMQP
+	implementation("com.fasterxml.jackson.module:jackson-module-kotlin") // Jackson is used for Event Serialization to JSON
+	// End of new dependencies
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	testImplementation("org.springframework.boot:spring-boot-starter-test") {
