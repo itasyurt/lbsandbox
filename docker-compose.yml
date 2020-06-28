@@ -9,15 +9,24 @@ services:
     depends_on:
       - service1
       - service2
+  rabbit:
+    image:  rabbitmq:3-management
+    ports:
+    - 5672:5672
+    - 15672:15672
   service1:
     build:
       context: .
       dockerfile: Dockerfile
     ports:
       - "8181:8080"
+    depends_on:
+      - rabbit
   service2:
     build:
       context: .
       dockerfile: Dockerfile
     ports:
       - "8282:8080"
+    depends_on:
+      - rabbit
